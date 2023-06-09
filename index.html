@@ -1,103 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task List</title>
-    <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <!-- style sheet -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
+        <title>Task List</title>
 
-<body>
-    <div class="container text-center">
-        <header id="main-header" class="bg-primary borader border-primary-subtle rounded-3 text-white p-4 mb-3 font-weight-bold">
-            <div class="row">
-                <div class="col-12">
-                    <h1 id="header-title" class="fw-bold text-uppercase">Task List</h1>
-                </div>
-            </div>
-        </header>
-    </div>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <script defer src="assets/script/script.js"></script>
+    </head>
 
-    <div class="container">
-        <h1 class="fw-bold">Add New Task</h1>
-        <br>
+    <body>
         <div class="container">
-            <h4 class="fw-bold">Task Name</h4>
-            <div class="container rounded-3">
-                <div class="card-body">
+            <div class="row">
+                <div class="col-md-6  mb-3">
+                    <h1>Add New Task</h1>
+                    <h2>Task Name</h2>
+                    <input type="text" class="form-control AddtaskInput  mb-3" placeholder="Enter your task here ">
+                    
+                </div>
+
+                <div class="container rounded-3">
+                    <h4 class="fw-bold">Task Description</h4>
+                    <br>
+                    <textarea name="" id="textarea" cols="80" rows="5"></textarea>
+                </div>
+
+
+                <br><br>
+                <div class="container rounded-3 row">
                     <div class="col-6">
-                        <input type="text" class="form-control" id="inputField" placeholder="Enter your task here ">
+                        <h4 class="fw-bold">Assigned To:</h4>
+                        <br>
+                        <input type="text" class="col-12 assigned">
+                    </div>
+                
+                    <div class="date col-xl-3 rounded-3">
+                        <h5 class="fw-bold">Due Date</h5>
+        
+                        <input type="date" name="date" id="date">
                     </div>
                 </div>
-            </div>
 
-            <br>
-
-            <div class="container rounded-3">
-                <h4 class="fw-bold">Task Description</h4>
-                <br>
-                <textarea name="" id="textarea" cols="80" rows="5"></textarea>
-            </div>
-
-            <div class="to-dos" id="toDoContainer">
-            </div>
-
-            <br><br>
-
-            <div class="container rounded-3 row">
-                <div class="col-6">
-                    <h4 class="fw-bold">Assigned To:</h4>
-                    <br>
-                    <input type="text" class="col-12">
+                <div>
+                    <a href="#" class="btn bg-primary Add text-white fw-bold">Add Task</a>
+                    <a href="#" class="btn bg-info text-white fw-bold delete">Delete</a>
                 </div>
-              
-                <div class="date col-xl-3 rounded-3">
-                    <h5 class="fw-bold">Due Date</h5>
-    
-                    <input type="date" name="date" id="date">
+                
+                <div class="col-md-12 mt-3">
+                    <div class="tasks">
+                        <h1>Tasks</h1>
+                        
+                    </div>
                 </div>
+                <br> <br>
+
+                
             </div>
         </div>
-
-        <br><br>
-
-        <div>
-            <button type="btn" class="add col-3 btn btn-primary rounded-3" id="addToDo">
-                <h5 class="fw-bold my-2">ADD TASK</h5>
-            </button>
-        </div>
-
-        <br><br>
-
-        <div>
-            <h1 class="fw-bold">Tasks</h1>
-        </div>
-        <br> <br>
-
-    </div>
-    </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
-
-</body>
+        
+        <!-- Bootstrap JavaScript Libraries -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    </body>
 </html>
-
-<!-- class="fst-italic" -->
-<!-- class="fst-start" -->
-<!-- class="fst-center" -->
-<!-- class="fst-end" -->
