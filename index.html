@@ -36,7 +36,7 @@
             <div class="container rounded-3">
                 <div class="card-body">
                     <div class="col-6">
-                        <input type="text" class="form-control" id="inputField" placeholder="Enter your task here ">
+                        <input type="text" class="form-control addTaskInput" id="inputField" placeholder="Enter your task here ">
                     </div>
                 </div>
             </div>
@@ -54,12 +54,13 @@
 
       <br><br>
 
-      <div class="container rounded-3 row">
+      <div class="container justify-content-between rounded-3 row">
         <div class="col-6">
-          <h4 class="fw-bold">Assigned To:</h4>
+          <h4 class="fw-bold assigned">Assigned To:</h4>
           <br>
           <input type="text" class="col-12">
         </div>
+  
 
         <div class="date col-xl-3 rounded-3">
           <h5 class="fw-bold">Due Date</h5>
@@ -71,15 +72,19 @@
     <br><br>
 
     <div>
-      <button type="btn" class="add col-3 btn btn-primary rounded-3" id="addToDo">
-        <h5 class="fw-bold my-2">ADD TASK</h5>
+      <button type="btn" class=" add col-3 btn btn-primary rounded-3" id="addToDo">
+        <h5 class="fw-bold my-2 ">ADD TASK</h5>
       </button>
     </div>
 
     <br><br>
 
         <div>
-            <h1 class="fw-bold">Tasks</h1>
+            <h1 id="#add-task-button" class="taskManager fw-bold task">Tasks</h1>
+              <i type="text" id="task-name">  </i> 
+              <i type="text" id="task-description"> </i>
+              <i type="text" id="task-assigned-to" > </i>
+              <i type="date" id="task-due-date"> </i>
         </div>
         <br> <br>
 
@@ -93,6 +98,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
+
+        <script src="./assets/script/taskManager.js"></script>
+        <script src="./assets/script/index.js"></script>
+       
 
 </body>
 
