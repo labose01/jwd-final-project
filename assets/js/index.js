@@ -1,45 +1,27 @@
+//const taskManager = new TaskManager();
 const addBtn = document.querySelector(".add");
-const addTaskInput = document.querySelector(".addTaskInput");
-const taskDescription = document.querySelector(".description");
-const taskAssigned = document.querySelector(".assignedTo");
-const dueDate = document.querySelector(".date");
-const task = document.querySelector(".task");
+const addTaskInput = document.querySelector("#inputField");
+// const taskDescription = document.querySelector(".description");
+// const taskAssigned = document.querySelector(".assignedTo");
+// const dueDate = document.querySelector(".date");
+//const task = document.querySelector(".task");
 
 
-const validFormFieldInput = () => {
+const validFormFieldInput = (data) => {
 
-    let data = addTaskInput.value;
-
-    if(data == ""){
+    
+    let newData = addTaskInput.value;
+    if(newData == ""){
         alert("Please add the task name")
         return;
     }
 
-    
-    task.addEventListener("click", function(event) {
-            event.preventDefault()
-        
-        tasksManager.addTask(
-            addTaskInput.value,
-            taskDescription.value,
-            taskAssigned.value,
-            dueDate.value,
-            task.value
-        );
-        
-        addTaskInput = '';
-        taskDescription = '';
-        taskAssigned = '';
-        dueDate = '';
-        task= '';
-    });
-    
-} 
+}
 
 
 addBtn.addEventListener("click", validFormFieldInput);
 
 
-//console.log(tasksManager);
+
 
 
