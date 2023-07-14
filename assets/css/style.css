@@ -7,3 +7,9 @@
 #updateTaskBtn{
     display: none;
 }
+/* .done-button.visible {
+    opacity: 1;
+} */
+.invisible {
+    display: none;
+  }

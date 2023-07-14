@@ -1,10 +1,11 @@
 const taskManager = new TaskManager();
+taskManager.load();
+taskManager.render();
 const addBtn = document.querySelector("#addTaskBtn");
-
 const taskForm = document.querySelector("#new-task-form");
-const deleteTask = document.getElementById("#deleteTaskBtn");
-
-
+const saveButton = document.getElementById("saveTaskBtn");
+const updateButton = document.getElementById("updateTaskBtn");
+const deleteButton = document.getElementById("deleteTaskBtn");
 
 
 const validFormFieldInput = (data) => {
@@ -30,11 +31,8 @@ document.getElementById('new-task-form').addEventListener('submit', (event) => {
     const newTaskType = document.getElementById("task-type");
     const newTaskstatus = document.getElementById("task-status");
     const newTaskdueDate = document.getElementById('task-due-date');
-
-    
+ 
     //const saveButton = document.getElementById("saveTaskBtn");
-    
-    
 
     //validation should be here
 
@@ -47,10 +45,7 @@ document.getElementById('new-task-form').addEventListener('submit', (event) => {
     
     taskManager.addTask(name, description, assignedTo, taskType, status, dueDate);
     // save
-
     taskManager.save();
-
-    //saveButton.addEventListener("click", () => submitForm("new"));
 
     taskManager.render();
 
@@ -60,40 +55,65 @@ document.getElementById('new-task-form').addEventListener('submit', (event) => {
     document.getElementById('task-assigned-to').value = '';
     document.getElementById('task-type').value = '';
     document.getElementById('task-status').value = '';
-    document.getElementById('task-due-date').value = '';
-    
+    document.getElementById('task-due-date').value = '';   
 
 });
 
 
-//eventlisener done must use dom traversal
+//  const doneBtn = document.getElementById("btn")
 
 // DOM Selector
 const tasksList = document.querySelector("#tasks-list")
 
-  
+
+
 // Event listener for the click event on the tasks list
-    tasksList.addEventListener('submit', (event) => {
+tasksList.addEventListener('click', function(event) {
     if (event.target.classList.contains('done-button')) {
-          const parentTask = event.target.closest('.list-group-item');
-          const taskId = Number(parentTask.dataset.taskId);
-          taskManager.updateTaskStatus(taskId, 'DONE');
-          taskManager.save();
-          taskManager.render();
-        }
-    });
-  
-        // deleteTask.addEventListener('submit', () => {
-        //     tasksList.removeChild();
-        tasksList.addEventListener("click", (event) => {
-            if (event.target.classList.contains("delete-button")) {
-                const parentTask = event.target.parentElement.parentElement;
-                const taskId = Number(parentTask.dataset.taskId);
-                taskManager.deleteTask(taskId);
-            }
-        });
+      const parentTask = event.target.parentElement.parentElement.parentElement;
+      const taskId = parseInt(parentTask.dataset.taskId); 
+      const task = taskManager.getTaskById(taskId);
+      task.status = 'DONE';
+      taskManager.render();
+      taskManager.save();
+
+      if (task.status === 'TODO') {
+        event.target.classList.add('invisible');
+        console.log('Class added: invisible');
+      } else {
+        event.target.classList.remove('invisible');
+        console.log('Class removed: invisible');
+      }
+    }
     
-  
-  
-  // ...
+
+  });
+
+
+    tasksList.addEventListener('click', (event) => {
+        if (event.target.classList.contains('delete-button')) {
+            const parentTask = event.target.parentElement.parentElement.parentElement;
+            const taskId = parseInt(parentTask.dataset.taskId);
+            taskManager.deleteTask(taskId);
+            taskManager.save();
+            taskManager.render();
+            }
+    });
+    // function doneInvisible(){
+    //     if(!task.status === 'DONE'){
+    //        doneBtn = "visible";
+    //     } else {
+    //         doneBtn = "invisible";
+
+    //     }
+    // }
+
+    // Click "Delete Task" button
+    deleteButton.addEventListener("click",  () => {
+        taskManager.deleteTask(updateTaskId)
+        taskManager.render();
+        taskManager.save();
+    });
+
+
   
