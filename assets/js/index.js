@@ -1,3 +1,4 @@
+// import { TaskManager } from '../assets/js/taskManager';
 const taskManager = new TaskManager();
 taskManager.load();
 taskManager.render();
@@ -99,14 +100,6 @@ tasksList.addEventListener('click', function(event) {
             taskManager.render();
             }
     });
-    // function doneInvisible(){
-    //     if(!task.status === 'DONE'){
-    //        doneBtn = "visible";
-    //     } else {
-    //         doneBtn = "invisible";
-
-    //     }
-    // }
 
     // Click "Delete Task" button
     deleteButton.addEventListener("click",  () => {

@@ -147,7 +147,5 @@ class TaskManager {
 
 
 }
-
-
-module.exports = { TaskManager };
+// module.exports = { TaskManager };
 
