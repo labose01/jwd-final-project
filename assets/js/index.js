@@ -33,7 +33,6 @@ document.getElementById('new-task-form').addEventListener('submit', (event) => {
     const newTaskstatus = document.getElementById("task-status");
     const newTaskdueDate = document.getElementById('task-due-date');
  
-    //const saveButton = document.getElementById("saveTaskBtn");
 
     //validation should be here
 
@@ -61,32 +60,33 @@ document.getElementById('new-task-form').addEventListener('submit', (event) => {
 });
 
 
-//  const doneBtn = document.getElementById("btn")
-
 // DOM Selector
 const tasksList = document.querySelector("#tasks-list")
 
-
-
 // Event listener for the click event on the tasks list
 tasksList.addEventListener('click', function(event) {
-    if (event.target.classList.contains('done-button')) {
+  if (event.target.classList.contains("done-button")) {
+    let result = window.confirm("Are you 'Done'?")
+    if (result) { 
       const parentTask = event.target.parentElement.parentElement.parentElement;
       const taskId = parseInt(parentTask.dataset.taskId); 
       const task = taskManager.getTaskById(taskId);
-      task.status = 'DONE';
+      task.status = "DONE";
       taskManager.render();
       taskManager.save();
 
-      if (task.status === 'TODO') {
-        event.target.classList.add('invisible');
-        console.log('Class added: invisible');
-      } else {
-        event.target.classList.remove('invisible');
-        console.log('Class removed: invisible');
+      const altText = document.querySelector(`.button-text${taskId}`);
+      if (event.target.classList.contains("done-button")) {
+        // Show button
+        altText.innerHTML = "";
+        altText.style.visibility = "hidden";
+
       }
+
+      
     }
     
+  }
 
   });
 

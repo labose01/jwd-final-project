@@ -11,7 +11,7 @@ const createTaskHtml =(id, name, description, assignedTo, taskType, status, dueD
           <p>Task Type: ${taskType}</p>
           <p>Status: ${status}</p>
           <p>Due date: ${dueDate}</p>
-          <button class="btn btn-sm btn-success done-button">Mark As Done</button>
+          <button class="btn btn-sm btn-success button-text${id} done-button">Mark As Done</button>
     
           <button class="btn btn-sm btn-danger delete-button">Delete</button>
         </div>
@@ -95,6 +95,7 @@ class TaskManager {
        let tasksHtml = tasksHtmlList.join('\n');
        
        document.getElementById('tasks-list').innerHTML = tasksHtml;
+
     }
 
       getTaskById(taskId) {
@@ -142,6 +143,9 @@ class TaskManager {
         const currentIdString = localStorage.getItem('currentId');
         // Convert the currentId to a number and store it in this.currentId
         this.currentId = Number(currentIdString);
+
+      }else{
+        this.currentId = 0;
       }
     }
 
